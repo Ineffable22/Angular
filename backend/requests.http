@@ -1,0 +1,66 @@
+###
+POST http://localhost:9000/api/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Jhon Wick",
+    "password": "123321",
+    "nickname": "Matrix",
+    "team": "yellow",
+    "last_conection": "10-10-2022",
+    "pokemones": [15, 53, 24]
+}
+
+
+###
+GET http://localhost:9000/api/users HTTP/1.1
+
+
+###
+GET http://localhost:9000/api/users/634db9378f4dab0d747b7fe7 HTTP/1.1
+
+
+###
+PUT http://localhost:9000/api/users/634db9378f4dab0d747b7fe7 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Miguel Grillo",
+    "password": "123321",
+    "nickname": "Ineffable",
+    "team": "blue",
+    "last_conection": "10-10-2022",
+    "pokemones": [1, 2, 3]
+}
+
+
+###
+DELETE http://localhost:9000/api/users/6349cf31f159c1470bcb7e1e HTTP/1.1
+
+
+###
+POST http://localhost:9000/api/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Miguel Grillo",
+    "password": "123321",
+    "nickname": "Ineffable",
+    "team": "Azul",
+    "last_conection": "10-10-2022"
+}
+
+
+###
+GET http://localhost:9000/api/profile HTTP/1.1
+Content-Type: application/json
+header: {
+    autorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1pZ3VlbCBHcmlsbG8iLCJwYXNzd29yZCI6IjEyMzMyMSIsImlhdCI6MTY2NjA2NTQxNCwiZXhwIjoxNjY2MDY3MjE0fQ.SLqRshFW22jFB1yOAO0BMEtMwqXvD-htjh2jeCoQfck"
+    }
+{
+    "name": "Miguel Grillo",
+    "password": "123321",
+    "nickname": "Ineffable",
+    "team": "Azul",
+    "last_conection": "10-10-2022"
+}
