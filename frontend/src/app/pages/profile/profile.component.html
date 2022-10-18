@@ -1,0 +1,58 @@
+<mat-grid-list cols="4" rowHeight="100px">
+    <mat-grid-tile
+    [colspan]="2"
+    [rowspan]="1"
+    [style.background]="'lightblue'">
+    Nombre: {{this.dataProfile.name}}
+    </mat-grid-tile>
+    <mat-grid-tile
+        [colspan]="2"
+        [rowspan]="3"
+        [style.background]="this.dataProfile.team">
+        <img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png"/>
+    </mat-grid-tile>
+    <mat-grid-tile
+        [colspan]="2"
+        [rowspan]="1"
+        [style.background]="'lightblue'">
+    NickName: {{this.dataProfile.nickname}}
+    </mat-grid-tile>
+    <mat-grid-tile
+        [colspan]="1"
+        [rowspan]="1"
+        [style.background]="'lightblue'">
+    Número de Pokemones: {{this.pokeNumber}}
+    </mat-grid-tile>
+    <mat-grid-tile
+        [colspan]="1"
+        [rowspan]="1"
+        [style.background]="'lightblue'">
+    Team: {{this.dataProfile.team}}
+    </mat-grid-tile>
+</mat-grid-list>
+<br>
+<div class="containerTable">
+  <div>
+      <table>
+        <thead>
+          <td>N°</td>
+          <td>Nombre</td>
+          <td>ID</td>
+          <td>Tipo</td>
+        </thead>
+        <ng-container *ngFor="let i of element_data">
+          <tr>
+            <td>{{i.position}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.ID}}</td>
+            <td>{{i.tipo}}</td>
+          </tr>
+        </ng-container>
+      </table>
+    
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                      showFirstLastButtons 
+                      aria-label="Select page of periodic elements">
+      </mat-paginator>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<header [ngStyle]="{'width.%': this.width}">
+    <nav>
+        <ng-container *ngIf="status() == 'login'">
+          <a (click)="login()" class="button" routerLink="/login" routerLinkActive="activebutton">{{this.data}}</a>
+        </ng-container>
+        <ng-container *ngIf="status() == 'logout'">
+          <a class="button" routerLink="/home" routerLinkActive="activebutton">home</a> |
+          <a class="button" routerLink="/profile" routerLinkActive="activebutton">profile</a> |
+          <a (click)="logout()" class="button" routerLink="/login" routerLinkActive="activebutton">{{this.data}}</a>
+        </ng-container>
+      </nav>
+</header>

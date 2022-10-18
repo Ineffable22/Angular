@@ -1,0 +1,47 @@
+.container {
+    width: 100vw;
+    height: calc(100vh - 50px);
+    display: flex;
+    justify-content: center;
+}
+
+.containerLogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 600px;
+    margin: auto;
+    border: solid 5px red;
+    background-color: white;
+    .title {
+        font-size: 30px;
+        height: 25%;
+        
+    }
+    .containerinput {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 400px;
+        height: 20%;
+        mat-form-field {
+            width: 80%;
+            height: 60%;
+        }
+        .example-right-align {
+            text-align: right;
+        }
+        
+        input.example-right-align::-webkit-outer-spin-button,
+        input.example-right-align::-webkit-inner-spin-button {
+            display: none;
+        }
+        
+        input.example-right-align {
+            -moz-appearance: textfield;
+        }
+    }
+
+}

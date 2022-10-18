@@ -1,0 +1,71 @@
+<div class="head">
+    <form class="example-form">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Pokemones</mat-label>
+            <input type="text"
+            placeholder="Busca un pokemon"
+            matInput
+            [formControl]="control"
+            [matAutocomplete]="auto">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                <mat-option *ngFor="let pokemon of filteredPokemons | async" [value]="pokemon">
+                    {{pokemon}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+        <div class="example-button-row">
+            <button mat-raised-button (click)="this.printValue()">Buscar</button>
+        </div>
+    </form>
+</div>
+<br>
+<div class="rectangle">
+    <div class="left">
+        <button class="left" (click)="prevPokemon()">Anterior</button>
+        <div class="square">
+                <figure class="imagen">
+                    <img [src]="imageUrl"/>
+                </figure>
+        </div>
+        <button class="right" (click)="nextPokemon()">Siguiente</button>
+    </div>
+    <div class="mid">
+        <article>
+            <h2>Nombre: {{namePokemon}}</h2>
+            <figure class="imagen">
+                <img [src]="imageUrlGif"/>
+            </figure>
+            <h2>Habilidades</h2>
+            <ul>
+                <ng-container *ngFor="let i of abilitiesGet">
+                    <li>
+                        {{i.ability.name}}
+                    </li>
+                </ng-container>
+            </ul>
+            <h2>Tipo</h2>
+            <ul>
+                <ng-container *ngFor="let i of types">
+                    <li>
+                        {{i.type.name}}
+                    </li>
+                </ng-container>
+            </ul>
+            <h2>Altura: {{height}} metros</h2>
+        </article>
+    </div>
+    <div class="right">
+        <article>
+            <h2>Stats:</h2>
+            <ng-container *ngFor="let i of statsBase">
+                {{i.stat.name}} ({{i.base_stat}} / 255)
+                <div class="first">
+                    <div [ngStyle]="{'width.%': i.base_stat*(100/255)}" class="second">
+                    </div>
+                </div>
+                <br>
+            </ng-container>
+        </article>
+
+    </div>
+</div>
