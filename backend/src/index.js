@@ -7,6 +7,7 @@ const corsOption = {
 };
 const userRoutes = require('./routes/user');
 const loginRoutes = require('./routes/login');
+const shippingRoutes = require('./routes/shipping');
 
 const app = express();
 const port = process.env.PORT || 9000;
@@ -17,6 +18,7 @@ app.use(cors(corsOption));
 app.use(express.json());
 app.use('/api', userRoutes);
 app.use('/api', loginRoutes);
+app.use('/api', shippingRoutes);
 
 // routes
 app.get('/', (req, res) => {
