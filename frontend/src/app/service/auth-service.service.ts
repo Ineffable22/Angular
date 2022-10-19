@@ -28,6 +28,7 @@ export class AuthServiceService {
   myProfile$ = this.profile.asObservable();
 
   get isLogged(): Observable<boolean> {
+    console.log(this.loggedIn.asObservable())
     return this.loggedIn.asObservable();
   }
 

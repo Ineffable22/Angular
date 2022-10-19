@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 150px auto;
+    color: white;
+}
+
+h2 {
+    font-size: 10vh;
+    line-height: normal;
+}
+
+p {
+    line-height: normal;
+    margin-top: 50px;
+    font-size: 4vh;
+}

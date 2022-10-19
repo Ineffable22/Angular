@@ -3,12 +3,10 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTr
 import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
-export class CheckLoginGuard implements CanActivate {
+export class BlockNotTokenGuard implements CanActivate {
   constructor (
     private router: Router,
     private cookieService: CookieService) {}
@@ -17,8 +15,8 @@ export class CheckLoginGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     
     const token = this.cookieService.get('token');
-    if (token) {
-      this.router.navigateByUrl('/home');
+    if (!token) {
+      this.router.navigateByUrl('/login');
       return false;
     }
     return true;

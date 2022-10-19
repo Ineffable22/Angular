@@ -40,7 +40,7 @@
           <td>ID</td>
           <td>Tipo</td>
         </thead>
-        <ng-container *ngFor="let i of element_data">
+        <ng-container *ngFor="let i of element_dataSlice">
           <tr>
             <td>{{i.position}}</td>
             <td>{{i.name}}</td>
@@ -49,10 +49,15 @@
           </tr>
         </ng-container>
       </table>
-    
-      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                      showFirstLastButtons 
-                      aria-label="Select page of periodic elements">
+
+      <mat-paginator
+        [length]="paginatorOptions.length"
+        [pageSizeOptions]="paginatorOptions.pageSizeOptions"
+        [pageSize]="paginatorOptions.pageSize"
+        [pageIndex]="paginatorOptions.pageIndex"
+        [showFirstLastButtons]="true"
+        (page)="OnPageChange($event)"
+        aria-label="Select page">
       </mat-paginator>
     </div>
 </div>
